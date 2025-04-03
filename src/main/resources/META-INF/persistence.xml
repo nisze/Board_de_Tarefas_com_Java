@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+    <!-- Unidade de persistência nomeada "board-manager" -->
+    <persistence-unit name="board-manager" transaction-type="RESOURCE_LOCAL">
+
+        <!-- Proveedor do Hibernate -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Propriedades de conexão -->
+        <properties>
+            <!-- URL do banco MySQL (altere 'board_db' para o nome do seu banco) -->
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/board_db?useSSL=false&amp;serverTimezone=UTC"/>
+
+            <!-- Usuário e senha do MySQL -->
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="HabShuab66!"/>
+
+            <!-- Driver JDBC do MySQL -->
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="com.mysql.cj.jdbc.Driver"/>
+
+            <!-- ========== CONFIGURAÇÕES DO HIBERNATE ========== -->
+
+            <!-- Dialeto do MySQL 8 -->
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.MySQL8Dialect"/>
+
+            <!-- Atualiza automaticamente o schema do banco -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <!-- Mostra SQL no console -->
+            <property name="hibernate.show_sql" value="true"/>
+
+            <!-- Formata o SQL para melhor legibilidade -->
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!-- Habilita cache de segundo nível -->
+            <property name="hibernate.cache.use_second_level_cache" value="false"/>
+
+            <!-- Habilita cache de queries -->
+            <property name="hibernate.cache.use_query_cache" value="false"/>
+
+            <!-- Gera estatísticas (útil para desenvolvimento) -->
+            <property name="hibernate.generate_statistics" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
